@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cadastro_2._0.Model
+namespace Cadastro.BO.Modelo
 {
    public class Cliente
     {
-        public int status_cli { get; set; }
+       
         public int id { get; set; }
         public string nome { get; set; }
         public string rg { get; set; }

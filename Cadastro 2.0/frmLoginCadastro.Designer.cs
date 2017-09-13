@@ -47,7 +47,7 @@
             this.btnSalvarCad.TabIndex = 0;
             this.btnSalvarCad.Text = "Salvar";
             this.btnSalvarCad.UseVisualStyleBackColor = true;
-            this.btnSalvarCad.Click += new System.EventHandler(this.btnSalvarCad_Click);
+           
             // 
             // label1
             // 

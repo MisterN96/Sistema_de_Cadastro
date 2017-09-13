@@ -1,23 +1,19 @@
-﻿using Cadastro_2._0.Model;
+﻿using Cadastro.BO.Modelo;
+using Cadastro.BO.Negocio;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cadastro_2._0
 {
-    public partial class frmCadastroCliente : Form
+	public partial class frmCadastroCliente : Form
     {
        
 
 
 
-        int id_cliente = 0;
         bool Estatus = true;
         string genero;
 
@@ -30,7 +26,7 @@ namespace Cadastro_2._0
         {
             if(Estatus == false)
             {
-                editarCliente( txtBairro.Text, txtCep.Text, txtCpf.Text, txtEndereco.Text, txtNome.Text, txtNumero.Text, txtRg.Text, txtTelefone.Text, cbxCidade.Text, genero,id_cliente);
+                editarCliente( txtBairro.Text, txtCep.Text, txtCpf.Text, txtEndereco.Text, txtNome.Text, txtNumero.Text, txtRg.Text, txtTelefone.Text, cbxCidade.Text, genero);
 
                 MessageBox.Show("Edição feita com sucesso!");
 
@@ -59,22 +55,30 @@ namespace Cadastro_2._0
             genero = "Feminino";
         }
 
-        // recebe um cliente marcado
-        public void receberCliente(Cliente cliente)
+       
+        public void exibirCliente(Cliente cliente)
         {
             // aqui tenho que enviar o obj recebido para alteração
 
             txtNome.Text = cliente.nome;
             txtBairro.Text = cliente.bairro;
-            txtCep.Text = cliente.cep;
-            txtCpf.Text = cliente.cpf;
+            txtCep.Text = cliente.cep.ToString();
+            txtCpf.Text = cliente.cpf.ToString();
             txtEndereco.Text = cliente.endereco;
-            txtNumero.Text = cliente.numero;
-            txtRg.Text = cliente.rg;
-            txtTelefone.Text = cliente.telefone;
+            txtNumero.Text = cliente.numero.ToString();
+            txtRg.Text = cliente.rg.ToString();
+            txtTelefone.Text = cliente.telefone.ToString();
             genero = cliente.sexo;
             cbxCidade.Text = cliente.cidade;
-            id_cliente = cliente.id;
+			if (genero == "Masculino")
+			{
+				rdoMasc.Checked = true;
+			}
+			else
+			{
+				rdoFem.Checked = true;
+			}
+           
             Estatus = false;
            
             this.ShowDialog();
@@ -83,15 +87,11 @@ namespace Cadastro_2._0
 
         public void adicionarCliente()
         {
-          //TODO: setar o ID sem for com apenas um comando
-
          
-       
             Cliente cliente = new Cliente();
           
-            cliente.id = Static.Listas.Clientes.Count + 1 ;
             cliente.nome = txtNome.Text;
-            cliente.cpf = txtCpf.Text;
+            cliente.cpf =txtCpf.Text;
             cliente.rg = txtRg.Text;
             cliente.sexo = genero;
             cliente.endereco = txtEndereco.Text;
@@ -102,15 +102,16 @@ namespace Cadastro_2._0
             cliente.telefone = txtTelefone.Text;
             Estatus = true;
 
-            Static.Listas.InserirCliente(cliente);
+			ClienteNegocio.adicionarNovoCliente(cliente);
 
             MessageBox.Show("Cadastrado com sucesso!");
-
+			frmPainelHome home = new frmPainelHome();
             limparCampos();
+			home.carregarNomesComboBox();
 
-        }
+		}
         
-        private void editarCliente( string Bairro, string Cep, string Cpf, string Endereco, string Nome, string Numero, string Rg, string Telefone, string cidade, string genero, int id_cliente)
+        private void editarCliente( string Bairro, string Cep, string Cpf, string Endereco, string Nome, string Numero, string Rg, string Telefone, string cidade, string genero)
         {
             Cliente clienteEditado = new Cliente();
 
@@ -122,12 +123,11 @@ namespace Cadastro_2._0
             clienteEditado.nome = Nome;
             clienteEditado.numero = Numero;
             clienteEditado.rg = Rg;
-            clienteEditado.id = id_cliente;
             clienteEditado.telefone = Telefone;
             clienteEditado.cidade = cidade;
             clienteEditado.sexo = genero;
-     
-            Static.Listas.AlterarCliente(clienteEditado);
+
+			ClienteNegocio.EditarCliente(clienteEditado);
           
         }
 
@@ -141,7 +141,8 @@ namespace Cadastro_2._0
         {
             txtBairro.Clear(); txtCep.Clear(); txtCpf.Clear();
             txtEndereco.Clear(); txtNome.Clear(); txtNumero.Clear();
-            txtRg.Clear(); txtTelefone.Clear(); genero = null;
+            txtRg.Clear(); txtTelefone.Clear(); rdoFem.Checked = false;
+			rdoMasc.Checked = false;
 
         }
 

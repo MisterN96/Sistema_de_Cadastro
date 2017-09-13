@@ -14,10 +14,10 @@ namespace Cadastro_2._0
     {
 
 
-        string nome = "";
-        string senha = "";
-        string cpefinho = "";
-        bool validacpf,validanome,validasenha;
+        //string nome = "";
+        //string senha = "";
+        //string cpefinho = "";
+        //bool validacpf,validanome,validasenha;
 
         public frmLoginCadastro()
         {
@@ -35,67 +35,67 @@ namespace Cadastro_2._0
             
         }
 
-        private void btnSalvarCad_Click(object sender, EventArgs e)
-        {
+        //private void btnSalvarCad_Click(object sender, EventArgs e)
+        //{
 
-            frmLogin frmcadastro = new frmLogin();
+        //    frmLogin frmcadastro = new frmLogin();
 
-            if (txtNome.Text == "")
-            {
-                validanome = false;
-                MessageBox.Show("Favor preencher o campo LOGIN!");
-            }
-            else
-            {
-                validanome = true;
-                nome = txtNome.Text;
-            }
-            if (txtSenha.Text == "")
-            {
-                validasenha = false;
-                MessageBox.Show("Favor inserir SENHA");
+        //    if (txtNome.Text == "")
+        //    {
+        //        validanome = false;
+        //        MessageBox.Show("Favor preencher o campo LOGIN!");
+        //    }
+        //    else
+        //    {
+        //        validanome = true;
+        //        nome = txtNome.Text;
+        //    }
+        //    if (txtSenha.Text == "")
+        //    {
+        //        validasenha = false;
+        //        MessageBox.Show("Favor inserir SENHA");
 
-            }else
-            {
-                if (txtSenha.Text.Length <= 5)
-                {
-                    validasenha = false;
-                    MessageBox.Show("Favor inserir SENHA com mais  de 5 digitos!");
-                }
-                else
-                {
-                    validasenha = true;
-                    senha = txtSenha.Text;
-                }
-            }
+        //    }else
+        //    {
+        //        if (txtSenha.Text.Length <= 5)
+        //        {
+        //            validasenha = false;
+        //            MessageBox.Show("Favor inserir SENHA com mais  de 5 digitos!");
+        //        }
+        //        else
+        //        {
+        //            validasenha = true;
+        //            senha = txtSenha.Text;
+        //        }
+        //    }
                         
-            bool result = validarcpf(txtCpf.Text);
-            if (result == true)
-            {
-                validacpf = true;
-                lblValida.Text = "Valido";
-                cpefinho = txtCpf.Text;
+        //    bool result = validarcpf(txtCpf.Text);
+        //    if (result == true)
+        //    {
+        //        validacpf = true;
+        //        lblValida.Text = "Valido";
+        //        cpefinho = txtCpf.Text;
             
-            }
-            else
-            {
-                validacpf = false;
-                lblValida.Text = "Inválido";
-                txtCpf.Clear();
-                if (lblValida.Text.Equals("Inválido") || lblValida.Text.Equals(""))
-                {
-                    validacpf = true;
-                    MessageBox.Show("Favor inserir um CPF valido!");
-                }
-            }
-            if (validacpf == true && validanome == true && validasenha == true)
-            {
-                frmcadastro.salvarCadastro(nome, senha, cpefinho);
-                MessageBox.Show("CADASTRO REALIZADO COM SUCESSO!");
-                this.Close();
-            }
+        //    }
+        //    else
+        //    {
+        //        validacpf = false;
+        //        lblValida.Text = "Inválido";
+        //        txtCpf.Clear();
+        //        if (lblValida.Text.Equals("Inválido") || lblValida.Text.Equals(""))
+        //        {
+        //            validacpf = true;
+        //            MessageBox.Show("Favor inserir um CPF valido!");
+        //        }
+        //    }
+        //    if (validacpf == true && validanome == true && validasenha == true)
+        //    {
+        //        frmcadastro.salvarCadastro(nome, senha, cpefinho);
+        //        MessageBox.Show("CADASTRO REALIZADO COM SUCESSO!");
+        //        this.Close();
+        //    }
           
-        }
+        //}
         
 
 
