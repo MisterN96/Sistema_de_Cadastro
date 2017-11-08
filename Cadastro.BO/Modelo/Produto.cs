@@ -15,5 +15,6 @@ namespace Cadastro.BO.Modelo
         public DateTime data_fabri { get; set; }
         public string tipo_pro { get; set; }
         public string status_prod { get; set; }
+		public Decimal Valor_Produto { get; set; }
     }
 }

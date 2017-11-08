@@ -42,9 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessLayer\DataAccessLayer.cs" />
+    <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Cliente.cs" />
     <Compile Include="Modelo\Pedido.cs" />
     <Compile Include="Modelo\Produto.cs" />
+    <Compile Include="Modelo\Produto_Pedido.cs" />
     <Compile Include="Negocio\ClienteNegocio.cs" />
     <Compile Include="Negocio\PedidoNegocio.cs" />
     <Compile Include="Negocio\ProdutoNegocio.cs" />

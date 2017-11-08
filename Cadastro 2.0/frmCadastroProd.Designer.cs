@@ -44,6 +44,8 @@
 			this.rdIndus = new System.Windows.Forms.RadioButton();
 			this.grpTipo = new System.Windows.Forms.GroupBox();
 			this.grpStatus = new System.Windows.Forms.GroupBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.txtValor = new System.Windows.Forms.TextBox();
 			this.grpTipo.SuspendLayout();
 			this.grpStatus.SuspendLayout();
 			this.SuspendLayout();
@@ -207,11 +209,29 @@
 			this.grpStatus.TabIndex = 21;
 			this.grpStatus.TabStop = false;
 			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(31, 129);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(46, 13);
+			this.label6.TabIndex = 22;
+			this.label6.Text = "VALOR:";
+			// 
+			// txtValor
+			// 
+			this.txtValor.Location = new System.Drawing.Point(83, 123);
+			this.txtValor.Name = "txtValor";
+			this.txtValor.Size = new System.Drawing.Size(103, 20);
+			this.txtValor.TabIndex = 23;
+			// 
 			// frmCadastroProd
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(583, 260);
+			this.Controls.Add(this.txtValor);
+			this.Controls.Add(this.label6);
 			this.Controls.Add(this.grpStatus);
 			this.Controls.Add(this.grpTipo);
 			this.Controls.Add(this.dtVali);
@@ -255,5 +275,7 @@
 		private System.Windows.Forms.RadioButton rdIndus;
 		private System.Windows.Forms.GroupBox grpTipo;
 		private System.Windows.Forms.GroupBox grpStatus;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox txtValor;
 	}
 }
