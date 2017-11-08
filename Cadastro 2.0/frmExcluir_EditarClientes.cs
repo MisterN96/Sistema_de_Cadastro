@@ -65,9 +65,9 @@ namespace Cadastro_2._0
 
 				if (linhaSelecionada.Cells[0].Value != null)
 				{
-					int cod_cliente = Convert.ToInt32(linhaSelecionada.Cells[1].Value);
+					int cod_produto = Convert.ToInt32(linhaSelecionada.Cells[1].Value);
 
-					retornarid(cod_cliente);
+					retornarid(cod_produto);
 					linhaSelecionada.Cells[0].Value = null;
 					break;
 				}
@@ -105,7 +105,8 @@ namespace Cadastro_2._0
 			carregaLista(listaDecrescente);
         }
 
-	
+        
+
 
 		public void carregaLista(List<Cliente>listaCliente)
 		{

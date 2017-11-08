@@ -61,13 +61,13 @@ namespace Cadastro_2._0
 					MessageBox.Show("Cadastro feito com sucesso!");
 					frmPainelHome home = new frmPainelHome();
 					limparCampos();
-				
+					home.carregarNomesdeProdutoComboBox();
 
 
 				}
 				else
 				{
-					SalvarDados( txtNomeProd.Text, validade, fabricacao, statusProdu, tipoProdu, txtValor.Text);
+					SalvarDados( txtNomeProd.Text, validade, fabricacao, statusProdu, tipoProdu);
 					MessageBox.Show("Edição feita com sucesso!");
 					this.Close();
 					
@@ -88,7 +88,6 @@ namespace Cadastro_2._0
 		{
 			Produto produto = new Produto();
 
-				produto.Valor_Produto = Convert.ToDecimal(txtValor.Text);
                 produto.nomeprod = txtNomeProd.Text;
                 produto.status_prod = statusProdu;
                 produto.tipo_pro = tipoProdu;
@@ -107,7 +106,6 @@ namespace Cadastro_2._0
 			dtFabr.Value = produto.data_fabri;
 			tipoProdu = produto.tipo_pro;
 			statusProdu = produto.status_prod;
-			txtValor.Text = produto.Valor_Produto.ToString();
 			if (tipoProdu == "Não Perecivel")
 			{
 				rdoNaoPerecivel.Checked = true;
@@ -133,7 +131,7 @@ namespace Cadastro_2._0
 			
 
 		}
-        public void SalvarDados(string txtnome, DateTime validade, DateTime fabricacao, string status, string tipo, string valor)
+        public void SalvarDados(string txtnome, DateTime validade, DateTime fabricacao, string status, string tipo)
         {
 			Produto produtoEdi = new Produto();
 
@@ -142,7 +140,7 @@ namespace Cadastro_2._0
             produtoEdi.data_fabri = fabricacao;
             produtoEdi.tipo_pro = tipo;
             produtoEdi.status_prod = status;
-			produtoEdi.Valor_Produto = Convert.ToDecimal(valor);
+
             ProdutoNegocio.EditarProduto(produtoEdi);
             
         }

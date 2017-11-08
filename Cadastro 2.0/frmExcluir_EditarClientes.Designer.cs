@@ -174,6 +174,7 @@
 			this.btnDeletChek.TabIndex = 12;
 			this.btnDeletChek.Text = "DELETAR COM CHECK BOX";
 			this.btnDeletChek.UseVisualStyleBackColor = true;
+			
 			// 
 			// frmExcluir_EditarClientes
 			// 

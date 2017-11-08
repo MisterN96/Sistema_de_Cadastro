@@ -20,12 +20,6 @@ namespace Cadastro.BO.Modelo
         public string bairro { get; set; }
         public string cidade { get; set; }
         public string cep { get; set; }
-		public string login { get; set; }
-		public string senha { get; set; }
-		public byte[] foto { get; set; }
-		public string nomeFoto { get; set; }
-		public float carteira { get; set; }
-	
-
-	}
+       
+    }
 }

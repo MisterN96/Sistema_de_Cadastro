@@ -63,26 +63,6 @@ namespace Cadastro_2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _37_lindas_paisagens_da_Islandia_3 {
-            get {
-                object obj = ResourceManager.GetObject("37-lindas-paisagens-da-Islandia-3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap alpes_suicos_paisagens_lindas_da_natureza {
-            get {
-                object obj = ResourceManager.GetObject("alpes-suicos-paisagens-lindas-da-natureza", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap barcode_product {
             get {
                 object obj = ResourceManager.GetObject("barcode-product", resourceCulture);
@@ -163,16 +143,6 @@ namespace Cadastro_2._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paisagens_animais_encantadores_05 {
-            get {
-                object obj = ResourceManager.GetObject("paisagens_animais_encantadores_05", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap shopping_cart_with_product_inside {
             get {
                 object obj = ResourceManager.GetObject("shopping-cart-with-product-inside", resourceCulture);
@@ -196,16 +166,6 @@ namespace Cadastro_2._0.Properties {
         internal static System.Drawing.Bitmap user {
             get {
                 object obj = ResourceManager.GetObject("user", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap user_icon_2098873_960_720 {
-            get {
-                object obj = ResourceManager.GetObject("user-icon-2098873_960_720", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

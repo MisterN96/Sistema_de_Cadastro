@@ -8,8 +8,10 @@ namespace Cadastro.BO.Modelo
 {
 	public class Pedido
 	{
-		public int cod_ped;
-		public int cod_cli;
+		public int id_pedido;
+		public string cliente_pedido;
+		public string produto_pedido;
+		public int quantidade_produto;
 		public DateTime data_pedido; 
 	}
 }

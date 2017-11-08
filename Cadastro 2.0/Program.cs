@@ -16,7 +16,7 @@ namespace Cadastro_2._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmPainelHome());
         }
     }
 }
