@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Cadastro.BO.Modelo
 {
-	public class Pedido
+	public class Produto_Pedido
 	{
-		public int cod_ped;
-		public int cod_cli;
-		public DateTime data_pedido; 
+		public int prod_id;
+		public int ped_id;
+		public int quantidade;
 	}
 }

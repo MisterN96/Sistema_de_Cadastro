@@ -181,9 +181,10 @@ namespace Cadastro.BO.Negocio
 			listaParametros.Add(new SqlParameter { ParameterName = "@Fabricacao", SqlDbType = System.Data.SqlDbType.DateTime, Value = produto.data_fabri });
 			listaParametros.Add(new SqlParameter { ParameterName = "@Status", SqlDbType = System.Data.SqlDbType.NVarChar, Size = 20, Value = produto.status_prod });
 			listaParametros.Add(new SqlParameter { ParameterName = "@Tipo", SqlDbType = System.Data.SqlDbType.NVarChar, Size = 20, Value = produto.tipo_pro });
+			listaParametros.Add(new SqlParameter { ParameterName = "@Valor", SqlDbType = System.Data.SqlDbType.Decimal, Size = 20, Value = produto.Valor_Produto });
 
-			DataAccessLayer.ExecuteNonQuery(System.Data.CommandType.Text, "INSERT INTO TBL_PRODUTO(Nome, Validade, Fabricacao, Tipo_PRO, Status_PRO)" +
-				"VALUES (@Nome, @Validade, @Fabricacao, @Tipo, @Status)", listaParametros);
+			DataAccessLayer.ExecuteNonQuery(System.Data.CommandType.Text, "INSERT INTO TBL_PRODUTO(Nome_PRODUTO, Validade, Fabricacao, Tipo_PRO, Status_PRO, Valor_PRODUTO)" +
+				"VALUES (@Nome, @Validade, @Fabricacao, @Tipo, @Status, @Valor)", listaParametros);
 		}
 
 		/// <summary>

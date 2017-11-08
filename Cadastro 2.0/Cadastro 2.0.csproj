@@ -54,13 +54,6 @@
     <Compile Include="frmCadastrarCliente.Designer.cs">
       <DependentUpon>frmCadastrarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastro.cs" />
-    <Compile Include="frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCadastroProd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,11 +72,11 @@
     <Compile Include="frmExcluir_EditarClientes.Designer.cs">
       <DependentUpon>frmExcluir_EditarClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLoginCadastro.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLoginCadastro.Designer.cs">
-      <DependentUpon>frmLoginCadastro.cs</DependentUpon>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPainelHome.cs">
       <SubType>Form</SubType>
@@ -91,13 +84,23 @@
     <Compile Include="frmPainelHome.Designer.cs">
       <DependentUpon>frmPainelHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSenha.Designer.cs">
+      <DependentUpon>frmSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInserirDinheiro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInserirDinheiro.Designer.cs">
+      <DependentUpon>frmInserirDinheiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Objeto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCadastrarCliente.resx">
       <DependentUpon>frmCadastrarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroProd.resx">
       <DependentUpon>frmCadastroProd.cs</DependentUpon>
@@ -108,11 +111,17 @@
     <EmbeddedResource Include="frmExcluir_EditarClientes.resx">
       <DependentUpon>frmExcluir_EditarClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLoginCadastro.resx">
-      <DependentUpon>frmLoginCadastro.cs</DependentUpon>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPainelHome.resx">
       <DependentUpon>frmPainelHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSenha.resx">
+      <DependentUpon>frmSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInserirDinheiro.resx">
+      <DependentUpon>frmInserirDinheiro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -175,6 +184,18 @@
       <Project>{f531ab87-56b3-43b2-8eba-9d2b2c85f9e5}</Project>
       <Name>Cadastro.BO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paisagens_animais_encantadores_05.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\37-lindas-paisagens-da-Islandia-3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alpes-suicos-paisagens-lindas-da-natureza.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-icon-2098873_960_720.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
 
+
 namespace Cadastro.BO.Negocio
 {
 	public class ClienteNegocio
@@ -35,6 +36,11 @@ namespace Cadastro.BO.Negocio
 				cliente.cidade = Convert.ToString(dr["Cidade"]);
 				cliente.bairro = Convert.ToString(dr["Bairro"]);
 				cliente.cep = Convert.ToString(dr["CEP"]);
+				cliente.carteira =float.Parse(Convert.ToString(dr["Carteira"]));
+				cliente.login = Convert.ToString(dr["Login_CLiente"]);
+				cliente.senha = Convert.ToString(dr["Senha_Cliente"]);
+				cliente.foto = (byte[])(dr["imagem"]);
+				
 			}
 
 			return cliente;
@@ -65,7 +71,7 @@ namespace Cadastro.BO.Negocio
 		public static void EditarCliente(Cliente clienteEditado)
 		{
 			List<SqlParameter> ListParametros = new List<SqlParameter>();
-			ListParametros.Add(new SqlParameter { ParameterName = "@Codigo_Cliente", SqlDbType = SqlDbType.VarChar, Value = codigoCliente });
+			ListParametros.Add(new SqlParameter { ParameterName = "@Codigo_Cliente", SqlDbType = SqlDbType.VarChar, Value = clienteEditado.id });
 			ListParametros.Add(new SqlParameter { ParameterName = "@Nome_Cliente", SqlDbType = SqlDbType.VarChar, Size = 20, Value = clienteEditado.nome });
 			ListParametros.Add(new SqlParameter { ParameterName = "@cpf", SqlDbType = SqlDbType.VarChar, Size = 20, Value = clienteEditado.cpf });
 			ListParametros.Add(new SqlParameter { ParameterName = "@telefone", SqlDbType = SqlDbType.VarChar, Size = 20, Value = clienteEditado.telefone });
@@ -76,8 +82,10 @@ namespace Cadastro.BO.Negocio
 			ListParametros.Add(new SqlParameter { ParameterName = "@cidade", SqlDbType = SqlDbType.VarChar, Size = 20, Value = clienteEditado.cidade });
 			ListParametros.Add(new SqlParameter { ParameterName = "@bairro", SqlDbType = SqlDbType.VarChar, Size = 20, Value = clienteEditado.bairro });
 			ListParametros.Add(new SqlParameter { ParameterName = "@cep", SqlDbType = SqlDbType.VarChar, Size = 20, Value = clienteEditado.cep });
-
-			DataAccessLayer.ExecuteNonQuery(System.Data.CommandType.Text, "UPDATE TBL_CLIENTE SET Nome_Cliente = @Nome_Cliente, CPF = @cpf, Telefone = @telefone, Sexo = @sexo, RG = @rg, Endereco = @endereco, Numero = @numero, Cidade = @cidade, Bairro = @bairro,  CEP = @cep WHERE Codigo_Cliente = @Codigo_Cliente", ListParametros);
+			ListParametros.Add(new SqlParameter { ParameterName = "@imagem", SqlDbType = SqlDbType.Binary, Value = clienteEditado.foto });
+			ListParametros.Add(new SqlParameter { ParameterName = "@login", SqlDbType = SqlDbType.VarChar, Size = 20, Value = clienteEditado.login });
+			ListParametros.Add(new SqlParameter { ParameterName = "@senha", SqlDbType = SqlDbType.VarChar, Size = 20, Value = clienteEditado.senha});
+			DataAccessLayer.ExecuteNonQuery(System.Data.CommandType.Text, "UPDATE TBL_CLIENTE SET Nome_Cliente = @Nome_Cliente, CPF = @cpf, Telefone = @telefone, Sexo = @sexo, RG = @rg, Endereco = @endereco, Numero = @numero, Cidade = @cidade, Bairro = @bairro,  CEP = @cep, Senha_Cliente = @senha, Login_Cliente = @login, imagem = @imagem WHERE Codigo_Cliente = @Codigo_Cliente", ListParametros);
 		}
 
 		/// <summary>
@@ -185,6 +193,10 @@ namespace Cadastro.BO.Negocio
 				cliente.cidade = Convert.ToString(dr["Cidade"]);
 				cliente.bairro = Convert.ToString(dr["Bairro"]);
 				cliente.cep = Convert.ToString(dr["CEP"]);
+				cliente.login = Convert.ToString(dr["Login_CLiente"]);
+				cliente.senha = Convert.ToString(dr["Senha_Cliente"]);
+				cliente.foto = (byte[])(dr["imagem"]);
+				
 				return cliente;
 
 		}
@@ -196,7 +208,8 @@ namespace Cadastro.BO.Negocio
 		public static void adicionarNovoCliente(Cliente cliente)
 		{
 			List<SqlParameter> ListParametros = new List<SqlParameter>();
-			
+
+			ListParametros.Add(new SqlParameter { ParameterName = "@imagem", SqlDbType = SqlDbType.Binary, Value = cliente.foto });
 			ListParametros.Add(new SqlParameter { ParameterName = "@Nome_Cliente", SqlDbType = SqlDbType.VarChar, Size = 35, Value = cliente.nome });
 			ListParametros.Add(new SqlParameter { ParameterName = "@cpf", SqlDbType = SqlDbType.BigInt, Size = 20, Value = cliente.cpf });
 			ListParametros.Add(new SqlParameter { ParameterName = "@telefone", SqlDbType = SqlDbType.BigInt, Size = 20, Value = cliente.telefone });
@@ -207,9 +220,10 @@ namespace Cadastro.BO.Negocio
 			ListParametros.Add(new SqlParameter { ParameterName = "@cidade", SqlDbType = SqlDbType.VarChar, Size = 35, Value = cliente.cidade });
 			ListParametros.Add(new SqlParameter { ParameterName = "@bairro", SqlDbType = SqlDbType.VarChar, Size = 35, Value = cliente.bairro });
 			ListParametros.Add(new SqlParameter { ParameterName = "@cep", SqlDbType = SqlDbType.BigInt, Size = 20, Value = cliente.cep });
-
-			DataAccessLayer.ExecuteNonQuery(CommandType.Text, "INSERT INTO TBL_CLIENTE(Nome_Cliente, CPF, Telefone, Sexo, RG, Endereco, Numero, Cidade, Bairro, CEP)" +
-				"VALUES (@Nome_Cliente, @cpf, @telefone, @sexo, @rg, @endereco, @numero, @cidade, @bairro, @cep)", ListParametros);
+			ListParametros.Add(new SqlParameter { ParameterName = "@login", SqlDbType = SqlDbType.VarChar, Size = 10, Value = cliente.login});
+			ListParametros.Add(new SqlParameter { ParameterName = "@senha", SqlDbType = SqlDbType.VarChar, Size = 16, Value = cliente.senha });
+			DataAccessLayer.ExecuteNonQuery(CommandType.Text, "INSERT INTO TBL_CLIENTE(Nome_Cliente, CPF, Telefone, Sexo, RG, Endereco, Numero, Cidade, Bairro, CEP, Senha_Cliente, Login_Cliente, imagem)" +
+				"VALUES (@Nome_Cliente, @cpf, @telefone, @sexo, @rg, @endereco, @numero, @cidade, @bairro, @cep, @senha, @login,@imagem)", ListParametros);
 		}
 
 		/// <summary>
@@ -223,6 +237,50 @@ namespace Cadastro.BO.Negocio
 			listaParametro.Add(new SqlParameter { ParameterName = "@id", SqlDbType = System.Data.SqlDbType.Int, Value = idCliente });
 			DataAccessLayer.ExecuteReader(System.Data.CommandType.Text, "DELETE FROM TBL_CLIENTE WHERE Codigo_Cliente = @id", listaParametro);
 		}
+
+		public static Cliente validarLogin(string login)
+		{
+			
+			List<SqlParameter> ListaParametrosId = new List<SqlParameter>();
+			ListaParametrosId.Add(new SqlParameter { ParameterName = "@login", SqlDbType = System.Data.SqlDbType.VarChar, Size = 10, Value = login });
+			Cliente cliente = new Cliente();
+			SqlDataReader dr = DataAccessLayer.ExecuteReader(System.Data.CommandType.Text, "SELECT * FROM TBL_CLIENTE WHERE Login_Cliente = @login", ListaParametrosId);
+			while (dr.Read())
+			{
+
+			cliente = preencherObjeto(dr);
+			}
+
+			return cliente;
+
+		}
+
+		public static string validarSenha(string senha)
+		{
+			string senha_autenticado = "";
+			List<SqlParameter> ListaParametrosId = new List<SqlParameter>();
+			ListaParametrosId.Add(new SqlParameter { ParameterName = "@senha", SqlDbType = System.Data.SqlDbType.VarChar, Size = 10, Value = senha });
+			Cliente cliente = new Cliente();
+			SqlDataReader dr = DataAccessLayer.ExecuteReader(System.Data.CommandType.Text, "SELECT Senha_Cliente FROM TBL_CLIENTE WHERE Senha_Cliente = @senha", ListaParametrosId);
+			while (dr.Read())
+			{
+				senha_autenticado = Convert.ToString(dr["Senha_Cliente"]);
+			}
+
+			return senha_autenticado;
+
+		}
+
+		public static void inserirDinheiro(int id, float valor)
+		{
+
+			List<SqlParameter> ListParametros = new List<SqlParameter>();
+			ListParametros.Add(new SqlParameter {ParameterName = "@id", SqlDbType = SqlDbType.Int, Value = id });
+			ListParametros.Add(new SqlParameter { ParameterName = "@dimdim", SqlDbType = SqlDbType.Float, Value = valor });
+			DataAccessLayer.ExecuteNonQuery(System.Data.CommandType.Text, "UPDATE TBL_CLIENTE SET Carteira = @dimdim WHERE Codigo_Cliente = @id", ListParametros);
+
+		}
+
 
 
 
